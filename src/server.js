@@ -21,7 +21,8 @@ const { errorHandler, notFound } = require("./middleware/errorHandler");
 
 const app  = express();
 const PORT = process.env.PORT || 5000;
-
+// Required for Railway/Vercel/any proxy — fixes rate limiter
+app.set('trust proxy', 1);
 // ── Security headers ──────────────────────────────────────────
 app.use(helmet());
 
